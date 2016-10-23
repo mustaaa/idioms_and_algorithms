@@ -1,5 +1,5 @@
 * implement the std::stable_sort in terms of std::rotate as in https://channel9.msdn.com/Events/CPP/CppCon-2015/Better-Code-Data-Structures?ocid=relatedsession
 
-* implement the partial sort as in https://channel9.msdn.com/Events/CPP/CppCon-2015/Better-Code-Data-Structures?ocid=relatedsession
+* implement the sort_subrange in terms of nth_element and partial sort: https://channel9.msdn.com/Events/CPP/CppCon-2015/Better-Code-Data-Structures?ocid=relatedsession
 
 
