@@ -69,7 +69,6 @@ void sean_parent_polymorphism()
 
     auto element = doc[0];
     element.draw(std::cout, 0);
-    auto name = element.get_typename();
     std::cout << "\n" << element.get_typename() << "\n";
 
 }
