@@ -7,6 +7,9 @@
 #include "std_algorithms/std_for_each.hpp"
 #include "std_algorithms/std_rotate.hpp"
 #include "std_algorithms/std_stable_partition.hpp"
+#include "std_algorithms/std_replace_copy.h"
+#include "std_algorithms/std_unique_copy.h"
+#include "std_algorithms/std_sort.h"
 
 #include "idioms/sean_parent_polymorphism.hpp"
 
@@ -22,7 +25,9 @@ int main(int argc, char *argv[])
     test_case_list.insert({"std_rotate", [](){return std_rotate();}});
     test_case_list.insert({"std_stable_partition", [](){return std_stable_partition();}});
     test_case_list.insert({"sean_parent_polymorphism", [](){return sean_parent_polymorphism();}});
-
+    test_case_list.insert({"std_replace_copy", [](){return std_replace_copy();}});
+    test_case_list.insert({"std_unique_copy", [](){return std_unique_copy();}});
+    test_case_list.insert({"std_sort", [](){return std_sort();}});
 
     // following for_each executes all cases
 #if(EXECUTE_ALL)
@@ -33,7 +38,7 @@ int main(int argc, char *argv[])
                                                             });
 #else
 
-    auto ret = test_case_list.find("sean_parent_polymorphism");
+    auto ret = test_case_list.find("std_sort");
     if (ret != end(test_case_list))
     {
         (*ret).second();
