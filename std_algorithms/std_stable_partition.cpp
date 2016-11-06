@@ -1,5 +1,7 @@
 #include "std_stable_partition.hpp"
 #include "../utils.hpp"
+#include <iostream>
+
 
 void std_stable_partition()
 {
@@ -10,4 +12,16 @@ void std_stable_partition()
     PRINT_ELEMENTS(v, "after gather:");
     std::vector<int> ret {myPair.first, myPair.second};
     PRINT_ELEMENTS(ret, "gathered elements:");
+
+    std::cout << "\n\nBefor my_stable_partition:\n";
+    std::vector<int> v2 {1,2,5,6,43,3,4,10,343,4,63,63,4,0,7,47,52,4,2,57213,2,32,12};
+    auto pred = [](const int& e) { return e>15;};
+    std::copy(std::begin(v2), std::end(v2), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << "\nafter my_stable_partition\n";
+    my_stable_partition(std::begin(v2), std::end(v2), pred);
+    std::copy(std::begin(v2), std::end(v2), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << "\n";
 }
+
+
+

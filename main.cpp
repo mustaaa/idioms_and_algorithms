@@ -10,6 +10,7 @@
 #include "std_algorithms/std_replace_copy.h"
 #include "std_algorithms/std_unique_copy.h"
 #include "std_algorithms/std_sort.h"
+#include "std_algorithms/std_inplace_merge.h"
 
 #include "idioms/sean_parent_polymorphism.hpp"
 
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
     test_case_list.insert({"std_replace_copy", [](){return std_replace_copy();}});
     test_case_list.insert({"std_unique_copy", [](){return std_unique_copy();}});
     test_case_list.insert({"std_sort", [](){return std_sort();}});
+    test_case_list.insert({"std_inplace_merge", [](){return std_inplace_merge();}});
 
     // following for_each executes all cases
 #if(EXECUTE_ALL)

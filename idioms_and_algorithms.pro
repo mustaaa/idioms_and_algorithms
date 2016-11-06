@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     idioms/sean_parent_polymorphism.cpp \
     std_algorithms/std_replace_copy.cpp \
     std_algorithms/std_unique_copy.cpp \
-    std_algorithms/std_sort.cpp
+    std_algorithms/std_sort.cpp \
+    std_algorithms/std_inplace_merge.cpp
 
 HEADERS += \
     utils.hpp \
@@ -20,4 +21,5 @@ HEADERS += \
     std_algorithms/std_stable_partition.hpp \
     std_algorithms/std_replace_copy.h \
     std_algorithms/std_unique_copy.h \
-    std_algorithms/std_sort.h
+    std_algorithms/std_sort.h \
+    std_algorithms/std_inplace_merge.h
