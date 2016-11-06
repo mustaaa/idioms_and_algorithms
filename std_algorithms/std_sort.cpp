@@ -33,7 +33,13 @@ void std_sort()
     std::vector<int> v{3,7,-2,2,2,2,2,6,5,1,4,4,8};
 
     my_quick_sort(std::begin(v), std::end(v));
-
     std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
+
+    std::cout << "\n";
+
+    my_quick_sort(std::begin(v), std::end(v), std::greater<int>());
+    std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
+
+    std::cout << "\n";
 }
 

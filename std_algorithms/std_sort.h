@@ -4,8 +4,9 @@
 #include <utility>
 #include <iterator>
 
-template <typename I>
-I find_its_place(I first, I last)
+template <typename I, //I models bidirectional iterator
+          typename P> //P models binary predicate
+I find_its_place(I first, I last, P pred)
 {
     if (first == last)
         return last;
@@ -15,7 +16,7 @@ I find_its_place(I first, I last)
     {
         if (std::distance(first, last) > 0)
         {
-            if (*last < *first)
+            if (pred(*last, *first))
             {
                 std::swap(*first, *last);
                 std::swap(first, last);
@@ -28,7 +29,7 @@ I find_its_place(I first, I last)
         }
         else if (std::distance(first, last) <= 0)
         {
-            if (*last > *first)
+            if (!pred(*last, *first))
             {
                 std::swap(*first, *last);
                 std::swap(first, last);
@@ -43,14 +44,15 @@ I find_its_place(I first, I last)
     return last;
 }
 
-template <typename I>
-I my_quick_sort_impl(I first, I last)
+template <typename I, //I models bidirectional iterator
+          typename P> //P models binary predicate
+I my_quick_sort_impl(I first, I last, P pred)
 {
     if (first != last)
     {
-        auto cur = find_its_place(first, last);
-        my_quick_sort_impl(first, cur);
-        my_quick_sort_impl(cur+1, last);
+        auto cur = find_its_place(first, last, pred);
+        my_quick_sort_impl(first, cur, pred);
+        my_quick_sort_impl(cur+1, last, pred);
         return cur;
     }
     else
@@ -62,10 +64,17 @@ I my_quick_sort_impl(I first, I last)
 /*!
  *  example implementation for the quicksort
  */
-template <typename I>
+template <typename I> //I models bidirectional iterator
 void my_quick_sort(I first, I last)
 {
-    my_quick_sort_impl(first, last);
+    my_quick_sort_impl(first, last, std::less<typename I::value_type>());
+}
+
+template <typename I, //I models bidirectional iterator
+          typename P> //P models binary predicate
+void my_quick_sort(I first, I last, P pred)
+{
+    my_quick_sort_impl(first, last, pred);
 }
 
 
