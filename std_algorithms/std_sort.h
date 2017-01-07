@@ -4,9 +4,13 @@
 #include <utility>
 #include <iterator>
 
+/*!
+ *  moves the first element in the range [first, last) to its place
+ *  as if the range were sorted.
+ */
 template <typename I, //I models bidirectional iterator
           typename P> //P models binary predicate
-I find_its_place(I first, I last, P pred)
+I place_first_element_to_its_place(I first, I last, P pred)
 {
     if (first == last)
         return last;
@@ -50,7 +54,7 @@ I my_quick_sort_impl(I first, I last, P pred)
 {
     if (first != last)
     {
-        auto cur = find_its_place(first, last, pred);
+        auto cur = place_first_element_to_its_place(first, last, pred);
         my_quick_sort_impl(first, cur, pred);
         my_quick_sort_impl(cur+1, last, pred);
         return cur;

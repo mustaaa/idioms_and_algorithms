@@ -22,7 +22,9 @@ auto gather(I f, I l, I p, S s) -> std::pair<I, I>
     };
 }
 
-
+/*!
+ * Implementation of the stable partition in terms of std rotate.
+ */
 template <typename I, //I models bidirectional iterator
           typename S> //U models UnaryPredicate
 auto my_stable_partition (I first, I last, S pred) -> I //beginning of the elements which do not satisfy pred

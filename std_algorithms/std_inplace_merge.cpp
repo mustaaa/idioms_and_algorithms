@@ -4,7 +4,9 @@
 #include <iostream>
 #include <iterator>
 
-
+/*!
+ *  Implementation of the merge sort in terms of inplace_merge
+ */
 template <typename I>
 void mergeSort (I first, I last)
 {
